@@ -1,0 +1,17 @@
+LXI H, 8000H
+MOV C, M 
+INX H
+MOV B, M
+DCR C
+
+L1:	INX H
+	MOV A, M
+	CMP B
+	JC SKIP
+	MOV B, A
+	
+SKIP:	DCR C 
+	JNZ L1
+	LXI H, 9000H
+	MOV M, B
+	HLT 	
